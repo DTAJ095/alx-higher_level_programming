@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <Python.h>
+#include <object.h>
+#include <listobject.h>
 
 /**
  * print_python_list_info - Prints some basic info about Python lists
@@ -22,7 +24,7 @@ void print_python_list_info(PyObject *p)
 	while (i < list_size)
 	{
 		object = PyList_GetItem(p, i);
-		printf("Element %ld: %\n", i, Py_TYPE(object)->tp_name);
+		printf("Element %ld: %s\n", i, Py_TYPE(object)->tp_name);
 		i++;
 	}
 }

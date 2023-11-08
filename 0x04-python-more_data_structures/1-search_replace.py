@@ -2,9 +2,9 @@
 def search_replace(my_list, search, replace):
     new_list = []
 
-    for item in my_list:
-        if item != search:
-            new_list.append(item)
+    for num in my_list:
+        if num != search:
+            new_list.append(num)
         else:
             new_list.append(replace)
     return (new_list)

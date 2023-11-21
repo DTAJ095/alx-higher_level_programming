@@ -1,16 +1,18 @@
 #!/usr/bin/python3
 
-import math
+"""Define a MagicClass matching with a Python bytecode"""
 
-"""define a MagicClass matching with a Python bytecode"""
+import math
 
 
 class MagicClass:
-    """Define a circle"""
+    """Represent a circle"""
 
     def __init__(self, radius=0):
-        """initialize the magicClass"""
-
+        """Initialize the magicClass
+        Arg:
+            radius(int or float): The radius of the new MagicClass
+        """
         self.__radius = 0
         if type(radius) is not int and type(radius) is not float:
             raise TypeError("radius must be a number")

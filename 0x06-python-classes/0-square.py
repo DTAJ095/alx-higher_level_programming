@@ -2,5 +2,4 @@
 
 class Square:
     """define element of a square"""
-
     pass

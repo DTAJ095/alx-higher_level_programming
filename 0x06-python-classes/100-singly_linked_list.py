@@ -51,12 +51,11 @@ class SinglyLinkedList:
         self.__head = None
 
     def sorted_insert(self, value):
-        """Insert a new node in a list.
-        
-        The node is inserted in an ordered numerical position
+        """Insert a new node in a list
+            The node is inserted in an ordered numerical position
 
-        Args:
-            value(Node): the node to insert
+            Args:
+                value(Node): the node to insert
         """
         new_nd = Node(value)
         if self.__head is None:
@@ -79,5 +78,5 @@ class SinglyLinkedList:
         tmp = self.__head
         while tmp is not None:
             lists.append(str(tmp.data))
-            tmp =tmp.next_node
-        return ("\n".join(lists))
+            tmp = tmp.next_node
+        return ('\n'.join(lists))

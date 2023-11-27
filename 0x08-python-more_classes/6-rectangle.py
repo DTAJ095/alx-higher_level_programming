@@ -5,7 +5,7 @@
 
 class Rectangle:
     """ Rectangle's data """
-    
+
     number_of_instances = 0
 
     def __init__(self, width=0, height=0):

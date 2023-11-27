@@ -100,4 +100,5 @@ class Rectangle:
         """ Returns a new rectangle instance with
             width == height == size
         """
-        return cls(size, size)
+        cls = Rectangle()
+        return Rectangle(size, size)

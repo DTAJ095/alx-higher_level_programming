@@ -7,7 +7,7 @@ class Rectangle:
     """ Rectangle's data """
 
     def __init__(self, width=0, height=0):
-        """ Initialize a new rectangle 
+        """ Initialize a new rectangle
             Args:
                 width(int): the rectangle's width
                 height(int): the rectangle's height
@@ -19,7 +19,7 @@ class Rectangle:
     def width(self):
         """ Gest and sets the width """
         return (self.__width)
-    
+
     @width.setter
     def width(self, value):
         """ gets the value of the width """
@@ -42,4 +42,3 @@ class Rectangle:
         if value < 0:
             raise ValueError("height must be >= 0")
         self.height = value
-

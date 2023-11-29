@@ -27,7 +27,7 @@ void print_python_string(PyObject *p)
 	len = (ssize_t)PyUnicode_GET_LENGTH(p);
 
 	string_ob = PyUnicode_AsUTF8String(p);
-	str = PyBytes_AsString(str_ob);
+	str = PyBytes_AsString(string_ob);
 
 	for (i = 0; i < len; i++)
 	{

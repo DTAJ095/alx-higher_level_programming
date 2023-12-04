@@ -3,9 +3,8 @@
 """ Defines a class Mylist """
 
 
-class Mylist:
+class MyList(list):
     """ class attributes """
-
     def __init__(self):
         """ initialize an object """
         super().__init__()

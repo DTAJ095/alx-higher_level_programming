@@ -7,6 +7,7 @@ class BaseGeometry:
         """ Returns the area """
         raise Exception("area() is not implemented")
 
+
     def integer_validator(self, name, value):
         """ validates the value """
         if type(value) is not int:
@@ -16,7 +17,7 @@ class BaseGeometry:
 
 
 class Rectangle(BaseGeometry):
-        """A representation of a rectangle"""
+    """A representation of a rectangle"""
     def __init__(self, width, height):
         """instantiation of the rectangle"""
         self.integer_validator("width", width)

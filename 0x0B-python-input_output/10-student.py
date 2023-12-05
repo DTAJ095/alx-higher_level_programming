@@ -23,5 +23,8 @@ class Student:
             return (self.__dict__)
         my_dict = {}
         for x in attrs:
+            try:
                 my_dict[x] = self.__dict__[x]
+            except:
+                pass
         return (my_dict)

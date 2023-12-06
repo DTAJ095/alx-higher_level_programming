@@ -19,20 +19,16 @@ class Student:
         """ Returns a dictionary representation of Student
             instance
         """
-        if attrs is None:
-            return (self.__dict__)
-        my_dict = {}
-        for x in attrs:
-            try:
-                my_dict[x] = self.__dict__[x]
-            except:
-                pass
-        return (my_dict)
+        my_dict = dict()
+        if attrs and all(isinstance(x, str) for key in attrs):
+            for key in attrs:
+                if key in self.__dict__:
+                    my_dict.update({key: self.__dict__[key]})
+            return (my_dict)
+        return self.__dict__
+
 
     def reload_from_json(self, json):
         """ Replace all attributes of the Student instance """
         for key in json:
-            try:
-                setattr(self, key, json[key])
-            except:
-                pass
+            self.__dict__.update({key: json[key]})

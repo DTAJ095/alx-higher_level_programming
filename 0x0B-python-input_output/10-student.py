@@ -19,12 +19,10 @@ class Student:
         """ Returns a dictionary representation of Student
             instance
         """
-        if attrs is None:
-            return (self.__dict__)
-        my_dict = {}
-        for x in attrs:
-            try:
-                my_dict[x] = self.__dict__[x]
-            except:
-                pass
-        return (my_dict)
+        my_dict = dict()
+        if type(attrs) is list and all(type(x) is str for x in attrs):
+            for x in attrs:
+                if x in self.__dict__:
+                    my_dict.update({x: self.__dict__[x]})
+            return (my_dict)
+        return (self.__dict__.copy())

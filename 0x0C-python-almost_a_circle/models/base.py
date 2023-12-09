@@ -100,7 +100,7 @@ class Base():
 
         Returns: list of classes or empty list ortherwise
         """
-        filename = cls.__name__+ ."csv"
+        filename = cls.__name__ + ".csv"
         try:
             with open(filename, "r", newline="") as csv_file:
                 if cls.__name__ == "Rectangle":
@@ -108,7 +108,7 @@ class Base():
                 else:
                     _field = ['id', 'size', 'x', 'y']
                 list_dicts = csv.DictReader(csv, _field=_field)
-                list_dicts = [dict([key, int(value)] for key, value in d.items())
+                list_dicts = [dict([key, int(val)] for key, val in d.items())
                               for d in list_dicts]
                 return ([cls.create(**d) for d in list_dicts])
         except IOError:
@@ -126,7 +126,6 @@ class Base():
         turt.screen.bgcolor("#b7312c")
         turt.pensize(3)
         turt.shape("turtle")
-
         turt.color("#ffffff")
         for rect in list_rectangles:
             turt.showturtle()

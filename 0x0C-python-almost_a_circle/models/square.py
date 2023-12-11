@@ -5,6 +5,7 @@ from models.rectangle import Rectangle
 
 class Square(Rectangle):
     """ Square attributes """
+
     def __init__(self, size, x=0, y=0, id=None):
         """ Initialize a new Square """
         super().__init__(size, size, x, y, id)
@@ -44,8 +45,6 @@ class Square(Rectangle):
                      self.x = arg
                  elif a == 3:
                      self.y = arg
-                 a += 1
-
          elif kwargs and len(kwargs) != 0:
              for key, val in kwargs.items():
                  if key == "id":

@@ -204,7 +204,7 @@ class TestBase_save_to_file(unittest.TestCase):
 
     def test_save_to_file_overwrite(self):
         sqr = Square(9, 2, 39, 2)
-        Square.save_to_file([s])
+        Square.save_to_file([sqr])
         sqr = Square(10, 7, 2, 8)
         Square.save_to_file([sqr])
         with open("Square.json", "r") as f:
@@ -294,7 +294,7 @@ class TestBase_create(unittest.TestCase):
 
     def test_create_rectangle_new(self):
         rect1 = Rectangle(3, 5, 1, 2, 7)
-        rect1_dictionary = r1.to_dictionary()
+        rect1_dictionary = rect1.to_dictionary()
         rect2 = Rectangle.create(**rect1_dictionary)
         self.assertEqual("[Rectangle] (7) 1/2 - 3/5", str(rect2))
 
@@ -319,7 +319,7 @@ class TestBase_create(unittest.TestCase):
     def test_create_square_new(self):
         sqr1 = Square(3, 5, 1, 7)
         sqr1_dictionary = sqr1.to_dictionary()
-        sqr2 = Square.create(**s1_dictionary)
+        sqr2 = Square.create(**sqr1_dictionary)
         self.assertEqual("[Square] (7) 5/1 - 3", str(sqr2))
 
     def test_create_square_is(self):
@@ -353,7 +353,7 @@ class TestBase_load_from_file(unittest.TestCase):
     def test_load_from_file_first_rectangle(self):
         rect1 = Rectangle(10, 7, 2, 8, 1)
         rect2 = Rectangle(2, 4, 5, 6, 2)
-        Rectangle.save_to_file([r1, r2])
+        Rectangle.save_to_file([rect1, rect2])
         list_rectangles_output = Rectangle.load_from_file()
         self.assertEqual(str(rect1), str(list_rectangles_output[0]))
 
@@ -381,7 +381,7 @@ class TestBase_load_from_file(unittest.TestCase):
     def test_load_from_file_second_square(self):
         sqr1 = Square(5, 1, 3, 3)
         sqr2 = Square(9, 5, 2, 3)
-        Square.save_to_file([s1, s2])
+        Square.save_to_file([sqr1, sqr2])
         list_squares_output = Square.load_from_file()
         self.assertEqual(str(sqr2), str(list_squares_output[1]))
 

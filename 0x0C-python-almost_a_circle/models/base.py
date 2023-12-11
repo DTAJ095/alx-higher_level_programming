@@ -73,7 +73,7 @@ class Base():
         filename = str(cls.__name__) + ".json"
         try:
             with open(filename, "r") as f:
-                list_dicts = Base.form_json_string(f.read())
+                list_dicts = Base.from_json_string(f.read())
                 return ([cls.create(**dict) for dict in list_dicts])
         except IOError:
             return []
@@ -83,15 +83,15 @@ class Base():
         """ Write a csv representation of a list of objects to a file
         """
         filename = cls.__name__ + ".csv"
-        with open(filename, "w", new_line="") as csv_file:
-            if list_obj is NOne or list_obj == []:
+        with open(filename, "w", newline="") as csv_file:
+            if list_obj is None or list_obj == []:
                 csv_file.write("[]")
             else:
                 if cls.__name__ == "Rectangle":
                     _field = ['id', 'width', 'height', 'x', 'y']
                 else:
                     _field = ['id', 'size', 'x', 'y']
-                wrt = csv.DictWriter(csv_file, _field=_field)
+                wrt = csv.DictWriter(csv_file, fieldnames=_field)
                 for obj in list_obj:
                     wrt.writerow(obj.to_dictionary())
 
@@ -110,7 +110,7 @@ class Base():
                     _field = ['id', 'width', 'height', 'x', 'y']
                 else:
                     _field = ['id', 'size', 'x', 'y']
-                list_dicts = csv.DictReader(csv, _field=_field)
+                list_dicts = csv.DictReader(csv_file, fieldnames=_field)
                 list_dicts = [dict([key, int(val)] for key, val in d.items())
                               for d in list_dicts]
                 return ([cls.create(**d) for d in list_dicts])

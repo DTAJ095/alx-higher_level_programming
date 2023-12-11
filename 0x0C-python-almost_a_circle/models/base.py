@@ -26,7 +26,7 @@ class Base():
 
     @staticmethod
     def to_json_string(list_dict):
-        """ Rteurns the JSON serialization of a list of dict
+        """ Returns the JSON serialization of a list of dict
         """
         if list_dict is None or list_dict == []:
             return ("[]")

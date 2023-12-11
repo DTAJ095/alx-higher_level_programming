@@ -142,11 +142,11 @@ class Base():
                 turt.left(90)
             turt.hideturtle()
 
-        turt.color("#b5f3d8i")
+        turt.color("#b5f3d8")
         for sqr in list_squares:
             turt.showturtle()
             turt.up()
-            turt.goto(sqr.x, sq.y)
+            turt.goto(sqr.x, sqr.y)
             turt.down()
             for i in range(2):
                 turt.forward(sqr.width)

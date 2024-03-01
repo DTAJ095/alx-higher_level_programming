@@ -8,8 +8,9 @@ import sys
 
 
 if __name__ == "__main__":
+    session = requests.Session()
     url = sys.argv[1]
     email = sys.argv[2]
     payload = {"email": email}
-    response = requests.post(url, data=payload)
+    response = session.post(url, data=payload).text
     print(response)

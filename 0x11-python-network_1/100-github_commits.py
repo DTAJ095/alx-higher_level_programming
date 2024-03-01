@@ -19,6 +19,6 @@ if __name__ == "__main__":
         if i < 10:
             if type(commit) == dict:
                 print('{}: {}'.format(commit.get('sha'),
-                                  commit.get('commit').get('author')
-                                  .get('name')))
+                                      commit.get('commit').get('author')
+                                      .get('name')))
         i += 1

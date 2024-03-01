@@ -14,9 +14,9 @@ if __name__ == "__main__":
     session = requests.Session()
     response = session.get(url)
     res = response.json()
-    for i, commit in enumerate(res):
-        if i == 10:
-            break
-        if type(commit) is dict:
-            name = commit.get('commit').get('author').get('name')
-            print('{}: {}'.format(commit.get('sha'), name))
+    i = 0
+    for commit in res:
+        if i < 10:
+            print('{}: {}'.format(commit.get('sha'),
+                                  commit.get('commit').get('author').get('name')))
+        i += 1

@@ -6,22 +6,21 @@ import requests
 import sys
 
 
-
 if __name__ == "__main__":
     url = 'http://0.0.0.0:5000/search_user'
-    if len(sys.argv) > 1:
-        q = sys.argv[1]
-    else:
-        q = ""
-    data = {'q': q}
-    response = requests.post(url, data=data)
+    try:
+        data = {'q': sys.argv[1]}
+    except Exception:
+        data = {'q': ''}
+    session = requests.Session()
+    response = session.post(url, data=data)
     try:
         json_res = response.json()
-        if not json_res:
+        if len(json_res) == 0:
             print('No result')
         else:
-            _id = json.res.get('id')
+            _id = json_res.get('id')
             _name = json_res.get('name')
             print('[{}] {}'.format(_id, _name))
-    except ValueError as invalid_json:
+    except Exception:
         print('Not a valid json')

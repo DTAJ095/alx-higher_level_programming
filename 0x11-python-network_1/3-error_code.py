@@ -10,7 +10,7 @@ import urllib.error
 if __name__ == "__main__":
     url = sys.argv[1]
     try:
-        with urllib.request.urlopen(url) as res:
+        with urllib.request.urlopen(url) as response:
             res_txt = response.read().decode("utf-8")
             print(res_txt)
     except urllib.error.HTTPError as status:

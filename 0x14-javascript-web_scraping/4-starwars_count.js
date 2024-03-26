@@ -4,7 +4,7 @@ const request = require('request');
 const starWarUrl = process.argv[2];
 let count = 0;
 
-request(starWarUrl, function (error, response, body) {
+request(starWarUrl, function (_error, _response, body) {
   body = JSON.parse(body).results;
 
   for (let i = 0; i < body.length; ++i) {

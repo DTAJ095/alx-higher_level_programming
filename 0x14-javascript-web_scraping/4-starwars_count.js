@@ -19,4 +19,5 @@ request(starWarUrl, function (error, response, body) {
       }
     }
   }
+  console.log(count);
 });
